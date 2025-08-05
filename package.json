@@ -1,7 +1,7 @@
 {
-  "name": "bloque-gutenberg",
+  "name": "wp-gutenberg-blocks",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ejemplos de bloques Gutenberg para WordPress con configuración moderna y mejores prácticas.",
   "main": "index.js",
   "scripts": {
     "build": "wp-scripts build",
@@ -18,7 +18,11 @@
     "create-block": "npx @wordpress/create-block@latest --no-plugin --namespace=wp-gutenberg-blocks --textdomain=wp-gutenberg-blocks --wp-scripts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yojan Hernandez",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YojanHernandez/wp-gutenberg-blocks"
+  },
   "license": "ISC",
   "devDependencies": {
     "@wordpress/scripts": "^30.20.0"

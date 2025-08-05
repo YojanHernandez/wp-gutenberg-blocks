@@ -3,10 +3,10 @@
     "apiVersion": 3,
     "name": "wp-gutenberg-blocks/gutenberg-block",
     "version": "0.1.0",
-    "title": "Mi Gutenberg Block",
+    "title": "Hello World Block",
     "category": "text",
     "icon": "smiley",
-    "description": "Example block.",
+    "description": "Un bloque de ejemplo que muestra un mensaje de bienvenida.",
     "example": {},
     "supports": {
         "html": false

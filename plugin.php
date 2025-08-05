@@ -12,20 +12,34 @@
  * Text Domain: wp-gutenberg-blocks
  */
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+require_once plugin_dir_path(__FILE__) . 'inc/helpers.php';
+
+/**
+ * Plugin initialization
+ * This function is called when WordPress is ready to register blocks.
+ */
 function init_blocks()
 {
-    $blocks = [
-        'hello-world'
-    ];
+    // Auto-detectar carpetas de bloques
+    $blocks_src_dir = plugin_dir_path(__FILE__) . 'src/blocks';
+    $block_folders = wpgb_get_block_folders($blocks_src_dir);
 
-    foreach ($blocks as $block_name) {
+    if (empty($block_folders)) {
+        error_log("No blocks found in: {$blocks_src_dir}");
+        return;
+    }
 
-        $block_path = plugin_dir_path(__FILE__) . 'build/blocks/' . $block_name;
+    foreach ($block_folders as $block_name) {
+        $block_build_path = plugin_dir_path(__FILE__) . '/build/blocks/' . $block_name;
 
-        if (is_dir($block_path) && file_exists($block_path . '/block.json')) {
-            register_block_type($block_path);
+        if (file_exists($block_build_path . '/block.json')) {
+            register_block_type($block_build_path);
         } else {
-            error_log("Block not found or invalid: {$block_name} at {$block_path}");
+            error_log("Block missing block.json: {$block_name} at {$block_build_path}");
         }
     }
 }

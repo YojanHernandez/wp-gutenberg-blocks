@@ -24,7 +24,6 @@ require_once plugin_dir_path(__FILE__) . 'inc/helpers.php';
  */
 function init_blocks()
 {
-    // Auto-detectar carpetas de bloques
     $blocks_src_dir = plugin_dir_path(__FILE__) . 'src/blocks';
     $block_folders = wpgb_get_block_folders($blocks_src_dir);
 
